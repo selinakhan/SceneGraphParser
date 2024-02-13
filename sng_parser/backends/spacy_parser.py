@@ -264,6 +264,9 @@ class SpacyParser(ParserBackend):
                     if rel['subject'] != None and rel['object'] != None:
                         filtered_relations.append(rel)
 
+        for j in range(len(entities)):
+            entities[j]['id'] = j
+            
         if return_doc:
             return {'entities': entities, 'relations': filtered_relations}, doc
         return {'entities': entities, 'relations': filtered_relations}
